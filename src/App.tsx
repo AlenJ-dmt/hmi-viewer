@@ -8,6 +8,7 @@ function App() {
 
   useEffect(() => {
     const getIP = (e: MessageEvent<string>) => {
+      console.log(e.data);
       setHmURL(e.data);
     };
 
@@ -25,6 +26,8 @@ function App() {
           width: "100vw",
           display: "grid",
           placeItems: "center",
+          color: "#FFFFFF99",
+          fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
         }}
       >
         <p>Waiting for HMI to connect...</p>
@@ -33,7 +36,6 @@ function App() {
 
   return (
     <VncScreen
-      // url={`ws://127.0.0.1:6080/vnc.html?host=127.0.0.1&port=6080&ip=${hmiIp}`}
       url={hmiURL}
       scaleViewport
       background="#000000"
